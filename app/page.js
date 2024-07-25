@@ -5,6 +5,7 @@ import { useForm, useWatch } from "react-hook-form";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
+  const [timelineInfo, setTimelineInfo] = useState({});
   const {
     register,
     handleSubmit,
@@ -13,7 +14,10 @@ export default function Home() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    setTimelineInfo(data);
+  };
 
   function HomeInspection({ control }) {
     const homeInspectionCheck = useWatch({
@@ -38,6 +42,7 @@ export default function Home() {
 
   /* 
   PARTS/OPTIONS OF THE TIMELINE:
+  accepted offer date?
   Home inspection?
   Radon Test?
   well / water / septic?
@@ -50,6 +55,12 @@ export default function Home() {
   
   */
 
+  /* REQUIRED example */
+  /* <input
+            className="border-2"
+            {...register("exampleRequired", { required: true })}
+          /> */
+
   return (
     <>
       <div>
@@ -61,22 +72,12 @@ export default function Home() {
           onSubmit={handleSubmit(onSubmit)}
           className="border-2 flex flex-col"
         >
-          <input
-            className="border-2"
-            defaultValue="test"
-            {...register("example")}
-          />
-
-          {/* include validation with required or other standard HTML validation rules */}
-          <input
-            className="border-2"
-            {...register("exampleRequired", { required: true })}
-          />
+          <input className="border-2" type="date" {...register("example")} />
 
           <input
             type="checkbox"
             className="border-2"
-            {...register("homeInspectionCheck", { required: true })}
+            {...register("homeInspectionCheck")}
           />
           <HomeInspection control={control}></HomeInspection>
 
