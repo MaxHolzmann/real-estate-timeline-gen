@@ -41,6 +41,7 @@ export default function Home() {
           <input
             type="radio"
             value="buyer"
+            defaultChecked
             {...register("homeInspectionBuyerOrSeller")}
           ></input>
           <input
@@ -68,6 +69,7 @@ export default function Home() {
           <input
             type="radio"
             value="buyer"
+            defaultChecked
             {...register("radonInspectionBuyerOrSeller")}
           ></input>
           <input
@@ -100,6 +102,7 @@ export default function Home() {
           <input
             type="radio"
             value="seller"
+            defaultChecked
             {...register("wellWaterSepticBuyerOrSeller")}
           ></input>
         </>
@@ -170,6 +173,20 @@ Buyer or Seller Name field
           onSubmit={handleSubmit(onSubmit)}
           className="border-2 flex flex-col"
         >
+          <h2>Branding Options</h2>
+
+          <label>Max</label>
+          <input type="radio" value="Max" {...register("branding")}></input>
+          <label>Christine</label>
+          <input
+            type="radio"
+            value="Christine"
+            {...register("branding")}
+          ></input>
+
+          <label>Client Name</label>
+          <input type="text" className="border-2" {...register("clientName")} />
+
           <input
             type="checkbox"
             className="border-2"
