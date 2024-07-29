@@ -147,18 +147,8 @@ export default function Home() {
   }, [isLoading]);
 
   /* 
-  PARTS/OPTIONS OF THE TIMELINE:
-  seller or buyer represent
-  accepted offer date?
-  Home inspection?
-  Radon Test?
-
-  well / water / septic?
-  Utilities reminder!
-  Loan Commitment? 
-  Appraisal DATE?
-  TENATIVE CLOSING DATE, MENTION SUBJECT TO CHANGE.
-
+Additional ideas to add:
+Buyer or Seller Name field
   options for branding
   
   */
