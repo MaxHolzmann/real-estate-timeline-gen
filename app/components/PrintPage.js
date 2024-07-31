@@ -5,16 +5,46 @@ const PrintPage = forwardRef((props, ref) => {
 
   const timelineInfo = { ...timeline };
 
-  console.log("timeline info", timelineInfo);
+  const fixedDates = {
+    homeInspectionDueDate: new Date(
+      timelineInfo.homeInspectionDueDate
+    ).toLocaleDateString("US-EN", { timeZone: "UTC" }),
+    radonInspectionDueDate: new Date(
+      timelineInfo.radonInspectionDueDate
+    ).toLocaleDateString("US-EN", {
+      timeZone: "UTC",
+    }),
+    wellWaterSepticDueDate: new Date(
+      timelineInfo.wellWaterSepticDueDate
+    ).toLocaleDateString("US-EN", {
+      timeZone: "UTC",
+    }),
+    appraisalDueDate: new Date(
+      timelineInfo.appraisalDueDate
+    ).toLocaleDateString("US-EN", {
+      timeZone: "UTC",
+    }),
+    loanCommitmentDueDate: new Date(
+      timelineInfo.loanCommitmentDueDate
+    ).toLocaleDateString("US-EN", {
+      timeZone: "UTC",
+    }),
+    closingDate: new Date(timelineInfo.closingDate).toLocaleDateString(
+      "US-EN",
+      {
+        timeZone: "UTC",
+      }
+    ),
+  };
 
   /* 
- ORDER OF TIMELINE 
-  Home inspection?
-  Radon Test?
-  well / water / septic?
-  appraisal
-  loan commitment
-  closing date, utility reminder
+  Example from my previous project on how I fixed date formatting without giving the wrong dates.
+    entered.map((entry) => {
+    entry.hours = entry.hours;
+    entry.date = new Date(entry.date).toLocaleDateString("US-EN", {
+      timeZone: "UTC",
+    });
+  });
   */
 
   return (
@@ -38,7 +68,7 @@ const PrintPage = forwardRef((props, ref) => {
                 <b>Home Inspection:</b> Please call a home inspector to schedule
                 the home inspection as soon as possible. Any negotiations with
                 respect to the report are due by{" "}
-                <b>{timelineInfo.homeInspectionDueDate}</b>
+                <b>{fixedDates.homeInspectionDueDate}</b>
               </p>
             </div>
           </>
@@ -51,7 +81,7 @@ const PrintPage = forwardRef((props, ref) => {
             <div>
               <p>
                 <b>Radon Test:</b> The Radon test and any negotiations are due
-                by <b>{timelineInfo.radonInspectionDueDate}</b>
+                by <b>{fixedDates.radonInspectionDueDate}</b>
               </p>
             </div>
           </>
@@ -65,7 +95,7 @@ const PrintPage = forwardRef((props, ref) => {
               <p>
                 <b>Well, Water & Septic Tests:</b> Any tests or negotiations
                 with respect to the Well / Water / Septic are due by{" "}
-                <b>{timelineInfo.wellWaterSepticDueDate}</b>
+                <b>{fixedDates.wellWaterSepticDueDate}</b>
               </p>
             </div>
           </>
@@ -78,9 +108,9 @@ const PrintPage = forwardRef((props, ref) => {
             <div>
               <p>
                 <b>Appraisal:</b> Your lender's appraisal is due by{" "}
-                <b>{timelineInfo.appraisalDueDate}</b>. You will not need to
-                take any action regarding the appraisal, besides responding to
-                any requests from your lender.
+                <b>{fixedDates.appraisalDueDate}</b>. You will not need to take
+                any action regarding the appraisal, besides responding to any
+                requests from your lender.
               </p>
             </div>
           </>
@@ -92,7 +122,7 @@ const PrintPage = forwardRef((props, ref) => {
           <>
             <p>
               <b>Appraisal:</b> Your lender's Loan Commitment is due by{" "}
-              <b>{timelineInfo.loanCommitmentDueDate}</b>. You will not need to
+              <b>{fixedDates.loanCommitmentDueDate}</b>. You will not need to
               take any action regarding your Loan Commitment, besides responding
               to any requests from your lender.
             </p>
@@ -104,7 +134,7 @@ const PrintPage = forwardRef((props, ref) => {
         <div>
           <p>
             <b>Utilities:</b> As we near the closing date (
-            <b>{timeline.closingDate}</b>), please remember to contact &
+            <b>{fixedDates.closingDate}</b>), please remember to contact &
             transfer the utilities into your name, effective on the closing
             date.
           </p>
@@ -118,7 +148,7 @@ const PrintPage = forwardRef((props, ref) => {
           </p>
         </div>
 
-        <div>
+        <div className="text-center">
           <p>
             Again, Congratulations! Please do not hesitate to call or text with
             any questions you may have as we go through this process together!

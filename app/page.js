@@ -15,6 +15,16 @@ export default function Home() {
     formState: { errors },
   } = useForm();
 
+  const brandingOptions = [
+    { id: 1, name: "Max" },
+    { id: 2, name: "Christine" },
+  ];
+
+  const responsibilityOptions = [
+    { id: 1, name: "Buyer" },
+    { id: 2, name: "Seller" },
+  ];
+
   const onSubmit = (data) => {
     console.log(data);
     setTimelineInfo(data);
@@ -36,19 +46,32 @@ export default function Home() {
       return (
         <>
           <label>Home Inspection Due Date</label>
-          <input type="date" {...register("homeInspectionDueDate")}></input>
+          <input
+            type="date"
+            className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+            {...register("homeInspectionDueDate")}
+          ></input>
           <label>Buyer or Seller Responsibility?</label>
-          <input
-            type="radio"
-            value="buyer"
-            defaultChecked
-            {...register("homeInspectionBuyerOrSeller")}
-          ></input>
-          <input
-            type="radio"
-            value="seller"
-            {...register("homeInspectionBuyerOrSeller")}
-          ></input>
+
+          <div className="flex gap-3 py-3 px-4 border-b border-t">
+            <label>Buyer</label>
+            <input
+              type="radio"
+              value="buyer"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              defaultChecked
+              {...register("homeInspectionBuyerOrSeller")}
+            ></input>
+          </div>
+          <div className="flex gap-3 py-3 border-b px-4">
+            <label className="">Seller</label>
+            <input
+              type="radio"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              value="seller"
+              {...register("homeInspectionBuyerOrSeller")}
+            ></input>
+          </div>
         </>
       );
     }
@@ -64,19 +87,31 @@ export default function Home() {
       return (
         <>
           <label>Radon Inspection Due Date</label>
-          <input type="date" {...register("radonInspectionDueDate")}></input>
+          <input
+            type="date"
+            className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+            {...register("radonInspectionDueDate")}
+          ></input>
           <label>Buyer or Seller Responsibility?</label>
-          <input
-            type="radio"
-            value="buyer"
-            defaultChecked
-            {...register("radonInspectionBuyerOrSeller")}
-          ></input>
-          <input
-            type="radio"
-            value="seller"
-            {...register("radonInspectionBuyerOrSeller")}
-          ></input>
+          <div className="flex gap-3 py-3 px-4 border-b border-t">
+            <label>Buyer</label>
+            <input
+              type="radio"
+              value="buyer"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              defaultChecked
+              {...register("radonInspectionBuyerOrSeller")}
+            ></input>
+          </div>
+          <div className="flex gap-3 py-3 border-b px-4">
+            <label className="">Seller</label>
+            <input
+              type="radio"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              value="seller"
+              {...register("radonInspectionBuyerOrSeller")}
+            ></input>
+          </div>
         </>
       );
     }
@@ -92,19 +127,31 @@ export default function Home() {
       return (
         <>
           <label>Well / Water / Septic Inspection Due Date</label>
-          <input type="date" {...register("wellWaterSepticDueDate")}></input>
+          <input
+            type="date"
+            className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+            {...register("wellWaterSepticDueDate")}
+          ></input>
           <label>Buyer or Seller Responsibility?</label>
-          <input
-            type="radio"
-            value="buyer"
-            {...register("wellWaterSepticBuyerOrSeller")}
-          ></input>
-          <input
-            type="radio"
-            value="seller"
-            defaultChecked
-            {...register("wellWaterSepticBuyerOrSeller")}
-          ></input>
+          <div className="flex gap-3 py-3 px-4 border-b border-t">
+            <label>Buyer</label>
+            <input
+              type="radio"
+              value="buyer"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              {...register("wellWaterSepticBuyerOrSeller")}
+            ></input>
+          </div>
+          <div className="flex gap-3 py-3 border-b px-4">
+            <label className="">Seller</label>
+            <input
+              type="radio"
+              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              value="seller"
+              defaultChecked
+              {...register("wellWaterSepticBuyerOrSeller")}
+            ></input>
+          </div>
         </>
       );
     }
@@ -120,7 +167,11 @@ export default function Home() {
       return (
         <>
           <label>Appraisal Due Date</label>
-          <input type="date" {...register("appraisalDueDate")}></input>
+          <input
+            type="date"
+            className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+            {...register("appraisalDueDate")}
+          ></input>
         </>
       );
     }
@@ -136,7 +187,11 @@ export default function Home() {
       return (
         <>
           <label>Loan Commitment Due Date</label>
-          <input type="date" {...register("loanCommitmentDueDate")}></input>
+          <input
+            type="date"
+            className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+            {...register("loanCommitmentDueDate")}
+          ></input>
         </>
       );
     }
@@ -164,74 +219,135 @@ Buyer or Seller Name field
 
   return (
     <>
-      <div>
+      <div className="flex flex-col items-center">
         <div className="">
-          <h1 className="">Real Estate Transaction Timeline Generator</h1>
+          <h1 className="text-6xl text-center m-5">
+            Real Estate Transaction Timeline Generator
+          </h1>
+          <h2 className="text-2xl text-center mb-10">
+            Fill out the information below to generate a timeline PDF for your
+            client.
+          </h2>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="border-2 flex flex-col"
+          className="border-2 border-orange-200 rounded-lg flex flex-col items-center w-1/2 text-center p-5"
         >
-          <h2>Branding Options</h2>
+          <fieldset>
+            <legend className="text-sm font-semibold leading-6 text-gray-900">
+              Branding Options
+            </legend>
+            <div className="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
+              {brandingOptions.map((side, sideIdx) => (
+                <div key={sideIdx} className="relative flex items-start py-4">
+                  <div className="min-w-0 flex-1 text-sm leading-6">
+                    <label className="select-none font-medium text-gray-900">
+                      {side.name}
+                    </label>
+                  </div>
+                  <div className="ml-3 flex h-6 items-center">
+                    <input
+                      defaultChecked={side.id === null}
+                      id={`side-${side.id}`}
+                      value={side.name}
+                      name="plan"
+                      type="radio"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      {...register("branding")}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </fieldset>
 
-          <label>Max</label>
-          <input type="radio" value="Max" {...register("branding")}></input>
-          <label>Christine</label>
-          <input
-            type="radio"
-            value="Christine"
-            {...register("branding")}
-          ></input>
+          <div className="mt-5">
+            <label
+              htmlFor="email"
+              className="block text-sm font-bold leading-6 text-gray-900"
+            >
+              Client Name
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                placeholder=""
+                className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                {...register("clientName")}
+              />
+            </div>
+          </div>
 
-          <label>Client Name</label>
-          <input type="text" className="border-2" {...register("clientName")} />
+          <div className="flex flex-col gap-2 items-center mt-5 border-b-2 border-t-2 border-orange-200 w-full py-10">
+            <label className="block text-sm font-bold leading-6 text-gray-900">
+              Home Inspection?
+            </label>
+            <input
+              type="checkbox"
+              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              {...register("homeInspectionCheck")}
+            />
+            <HomeInspection control={control}></HomeInspection>
+          </div>
 
-          <input
-            type="checkbox"
-            className="border-2"
-            {...register("homeInspectionCheck")}
-          />
-          <HomeInspection control={control}></HomeInspection>
+          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+            <label>Radon Test?</label>
+            <input
+              type="checkbox"
+              className="border-2"
+              {...register("radonInspectionCheck")}
+            />
+            <RadonInspection control={control}></RadonInspection>
+          </div>
 
-          <input
-            type="checkbox"
-            className="border-2"
-            {...register("radonInspectionCheck")}
-          />
-          <RadonInspection control={control}></RadonInspection>
+          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+            <label>Well / Water / Septic Test?</label>
+            <input
+              type="checkbox"
+              className="border-2"
+              {...register("wellWaterSepticCheck")}
+            ></input>
+            <WellWaterSeptic control={control}></WellWaterSeptic>
+          </div>
 
-          <input
-            type="checkbox"
-            className="border-2"
-            {...register("wellWaterSepticCheck")}
-          ></input>
-          <WellWaterSeptic control={control}></WellWaterSeptic>
+          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+            <label>Appraisal Contingency?</label>
+            <input
+              type="checkbox"
+              className="border-2"
+              {...register("appraisalCheck")}
+            ></input>
+            <Appraisal control={control}></Appraisal>
+          </div>
 
-          <input
-            type="checkbox"
-            className="border-2"
-            {...register("appraisalCheck")}
-          ></input>
-          <Appraisal control={control}></Appraisal>
+          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+            <label>Financing Contingency?</label>
+            <input
+              type="checkbox"
+              className="border-2"
+              {...register("loanCommitmentCheck")}
+            ></input>
+            <LoanCommitment control={control}></LoanCommitment>
+          </div>
 
-          <input
-            type="checkbox"
-            className="border-2"
-            {...register("loanCommitmentCheck")}
-          ></input>
-          <LoanCommitment control={control}></LoanCommitment>
-
-          <input
-            type="date"
-            className="border-2"
-            {...register("closingDate")}
-          ></input>
+          <div className="flex flex-col items-center gap-2 m-5">
+            <label>Closing Date</label>
+            <input
+              type="date"
+              className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
+              {...register("closingDate")}
+            ></input>
+          </div>
 
           {/* errors will return when field validation fails  */}
           {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
-          <input className="rounded-md p-2 shadow-md " type="submit" />
+          <input
+            className="py-2 px-3 mt-5 bg-orange-400 text-white rounded-md shadow-md border-orange-400 border-2 hover:bg-white hover:text-orange-400 hover:scale-105"
+            type="submit"
+            value="Generate PDF"
+          ></input>
         </form>
 
         <div className="hidden">
