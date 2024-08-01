@@ -291,7 +291,7 @@ Buyer or Seller Name field
             <HomeInspection control={control}></HomeInspection>
           </div>
 
-          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+          <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
             <label>Radon Test?</label>
             <input
               type="checkbox"
@@ -301,7 +301,7 @@ Buyer or Seller Name field
             <RadonInspection control={control}></RadonInspection>
           </div>
 
-          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+          <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
             <label>Well / Water / Septic Test?</label>
             <input
               type="checkbox"
@@ -311,7 +311,7 @@ Buyer or Seller Name field
             <WellWaterSeptic control={control}></WellWaterSeptic>
           </div>
 
-          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+          <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
             <label>Appraisal Contingency?</label>
             <input
               type="checkbox"
@@ -321,7 +321,7 @@ Buyer or Seller Name field
             <Appraisal control={control}></Appraisal>
           </div>
 
-          <div className="flex flex-col gap-2 p-2 items-center mt-5 border-b-2 border-orange-200 w-full py-10">
+          <div className="flex flex-col gap-2 p-2 items-center  border-b-2 border-orange-200 w-full py-10">
             <label>Financing Contingency?</label>
             <input
               type="checkbox"
