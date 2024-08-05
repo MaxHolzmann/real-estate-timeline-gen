@@ -207,7 +207,6 @@ export default function Home() {
   /* 
 Additional ideas to add:
 Buyer or Seller Name field
-  options for branding
   
   */
 
@@ -235,8 +234,8 @@ Buyer or Seller Name field
           className="border-2 border-orange-200 rounded-lg flex flex-col items-center w-1/2 text-center p-5"
         >
           <fieldset>
-            <legend className="text-sm font-semibold leading-6 text-gray-900">
-              Branding Options
+            <legend className="text-lg font-semibold  text-gray-900">
+              Document Branding Options
             </legend>
             <div className="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
               {brandingOptions.map((side, sideIdx) => (
@@ -254,13 +253,19 @@ Buyer or Seller Name field
                       name="plan"
                       type="radio"
                       className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      {...register("branding")}
+                      {...register("branding", { required: true })}
                     />
                   </div>
                 </div>
               ))}
             </div>
           </fieldset>
+
+          {errors.branding && (
+            <span className="text-red-500 mt-5">
+              Document branding required.
+            </span>
+          )}
 
           <div className="mt-5">
             <label
@@ -280,7 +285,7 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col gap-2 items-center mt-5 border-b-2 border-t-2 border-orange-200 w-full py-10">
-            <label className="block text-sm font-bold leading-6 text-gray-900">
+            <label className="text-lg font-semibold  text-gray-900">
               Home Inspection?
             </label>
             <input
@@ -292,7 +297,9 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
-            <label>Radon Test?</label>
+            <label className="text-lg font-semibold  text-gray-900">
+              Radon Test?
+            </label>
             <input
               type="checkbox"
               className="border-2"
@@ -302,7 +309,9 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
-            <label>Well / Water / Septic Test?</label>
+            <label className="text-lg font-semibold  text-gray-900">
+              Well / Water / Septic Test?
+            </label>
             <input
               type="checkbox"
               className="border-2"
@@ -312,7 +321,9 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col gap-2 p-2 items-center border-b-2 border-orange-200 w-full py-10">
-            <label>Appraisal Contingency?</label>
+            <label className="text-lg font-semibold  text-gray-900">
+              Appraisal Contingency?
+            </label>
             <input
               type="checkbox"
               className="border-2"
@@ -322,7 +333,9 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col gap-2 p-2 items-center  border-b-2 border-orange-200 w-full py-10">
-            <label>Financing Contingency?</label>
+            <label className="text-lg font-semibold  text-gray-900">
+              Financing Contingency?
+            </label>
             <input
               type="checkbox"
               className="border-2"
@@ -332,16 +345,18 @@ Buyer or Seller Name field
           </div>
 
           <div className="flex flex-col items-center gap-2 m-5">
-            <label>Closing Date</label>
+            <label className="text-lg font-semibold  text-gray-900">
+              Closing Date
+            </label>
             <input
               type="date"
               className="rounded-md p-2 border-2 border-orange-200 shadow-sm"
-              {...register("closingDate")}
+              {...register("closingDate", { required: true })}
             ></input>
+            {errors.closingDate && (
+              <span className="text-red-500">Document branding required.</span>
+            )}
           </div>
-
-          {/* errors will return when field validation fails  */}
-          {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
           <input
             className="py-2 px-3 mt-5 bg-orange-400 text-white rounded-md shadow-md border-orange-400 border-2 hover:bg-white hover:text-orange-400 hover:scale-105"
